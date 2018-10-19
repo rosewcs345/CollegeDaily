@@ -12,12 +12,12 @@ erb files to haml:
 rake haml:erb2haml
 
 Useful Git Commands:
-git checkout <branch name> (e.g., git checkout team1) -> switch to team1 branch
+  git checkout <branch name> (e.g., git checkout team1) -> switch to team1 branch
 
-git push origin <branch name> (e.g., git push origin team2) -> push changes to team2 branch
+  git push origin <branch name> (e.g., git push origin team2) -> push changes to team2 branch
 *** make sure you are in the correct working branch before pushing!!! ***
 
-git pull origin <branch name> (e.g, git pull origin team3) -> pull changes to team3 branch
+  git pull origin <branch name> (e.g, git pull origin team3) -> pull changes to team3 branch
 *** make sure you are in the correct working branch before pulling!!! ***
 
 change commit message
