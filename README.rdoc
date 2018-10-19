@@ -5,6 +5,13 @@ This basically has nothing in it besides Ruby and Rails versions as well as the 
 To turn on the server:
 rails s -p $PORT -b $IP
 
+With rerun:
+bundle exec rerun -- rackup -p $PORT -o $IP
+
+erb files to haml:
+rake haml:erb2haml
+
+
 Things you may want to cover:
 
 * Ruby version = 2.4.0
