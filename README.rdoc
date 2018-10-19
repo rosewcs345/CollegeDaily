@@ -1,5 +1,10 @@
 update README
 
+*** IMPORTANT ***
+- Do not directly push to master branch without first testing your team branch is working as it should
+- Pull changes from master branch to your team branch time-to-time to get the latest changes
+
+
 This basically has nothing in it besides Ruby and Rails versions as well as the command used to turn on the server.
 
 To turn on the server:
