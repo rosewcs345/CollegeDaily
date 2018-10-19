@@ -1,4 +1,4 @@
-== README
+== README TEAM 3
 
 This basically has nothing in it besides Ruby and Rails versions as well as the command used to turn on the server.
 
