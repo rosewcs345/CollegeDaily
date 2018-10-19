@@ -1,7 +1,7 @@
 == README MASTER!
 
 *** IMPORTANT ***
-- Do NOT directly push to master branch
+- Do NOT directly push to master branch from team branches
   - make pull requests (PR) https://help.github.com/articles/creating-a-pull-request/
 - Pull changes from master branch to your team branch time-to-time to get the latest changes
 
