@@ -3,13 +3,13 @@
 This basically has nothing in it besides Ruby and Rails versions as well as the command used to turn on the server.
 
 To turn on the server:
-rails s -p $PORT -b $IP
+  rails s -p $PORT -b $IP
 
 With rerun:
-bundle exec rerun -- rackup -p $PORT -o $IP
+  bundle exec rerun -- rackup -p $PORT -o $IP
 
 erb files to haml:
-rake haml:erb2haml
+  rake haml:erb2haml
 
 Useful Git Commands:
   git checkout <branch name> (e.g., git checkout team1) -> switch to team1 branch
@@ -21,7 +21,7 @@ Useful Git Commands:
 *** make sure you are in the correct working branch before pulling!!! ***
 
 change commit message
-git commit --amend -am "new hello world"
+  git commit --amend -am "new hello world"
 
 
 <<< Common steps to follow >>>
