@@ -1,11 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This basically has nothing in it besides Ruby and Rails versions as well as the command used to turn on the server.
+
+To turn on the server:
+rails s -p $PORT -b $IP
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version = 2.4.0
+  Rails version = 4.2.10
 
 * System dependencies
 
