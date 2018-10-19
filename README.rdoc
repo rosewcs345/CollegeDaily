@@ -27,12 +27,12 @@ git commit --amend -am "new hello world"
 <<< Common steps to follow >>>
 
 After getting into the right working branch:
-git pull origin <branch name>
+  git pull origin <branch name>
 
 After making changes, and want to save changes to remote:
-git add -A
-git commit -am "add blah blah"
-git push origin <branch name>
+  git add -A
+  git commit -am "add blah blah"
+  git push origin <branch name>
 
 
 
