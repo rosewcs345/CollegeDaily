@@ -10,10 +10,10 @@
   = @event.date
 %p
   %strong Start time:
-  = @event.start_time
+  = @event.start_time.strftime "%I:%M %p"
 %p
   %strong End time:
-  = @event.end_time
+  = @event.end_time.strftime "%I:%M %p"
 %p
   %strong Location:
   = @event.location
