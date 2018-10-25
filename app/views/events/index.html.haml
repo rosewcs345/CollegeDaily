@@ -1,28 +1,119 @@
-%p#notice= notice
-%h1 Listing Events
-%table
-  %thead
-    %tr
-      %th Title
-      %th Host
-      %th Date
-      %th Start time
-      %th End time
-      %th Location
-      %th Description
-      %th{:colspan => "3"}
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.title
-        %td= event.host
-        %td= event.date
-        %td= event.start_time
-        %td= event.end_time
-        %td= event.location
-        %td= event.description
-        %td= link_to 'Show', event
-        %td= link_to 'Edit', edit_event_path(event)
-        %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Event', new_event_path
+%nav.navbar.navbar-default
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "./"} CollegeDaily
+    // %img{:src => "https://i.imgur.com/9vn88vw.png"}/
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"}
+            Home
+            %span.sr-only (current)
+        %li
+          %a{:href => "#"} Events
+        %li
+          %a{:href => "#"} About
+        %li
+          %a{:href => "#"} Contact
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "#"} Log In
+    / /.navbar-collapse
+  / /.container-fluid
+
+.hero.container-fluid
+  .row
+    .col.col-sm-6
+      %img{:alt => "CollegeDaily", :src => "https://i.imgur.com/9vn88vw.png"}/
+    .col.col-sm-6
+      %p
+        CollegeDaily is a central hub for official and unofficial college events. 
+        %br/
+        It offers students 3 services:
+        %br/
+        %span 1. Registering for B-Line events
+        %br/
+        One stop for all club information. Consolidated for a more effective user experience. 
+        Data will be scraped from B-Line & B-Engaged and displayed on a platform that allows event 
+        scheduling, event management, and additional features such as reminders or future notifications.
+        %br/
+        %span 2. Creating and Registering for outdoor events
+        %br/
+        Connects Binghamton University students on College Daily who are looking to do activities on and off 
+        campus. Students can post an event for a trip they want to go on with a description of the activity, 
+        date, location, and carpooling options. Other students can sign up for this event on College Daily. 
+        %br/
+        %span 3. Creating and Registering for study sessions
+        %br/
+        Connect students with fellow students who want to find study groups, and/or people who are looking for 
+        tutoring.Users sign up and can navigate to sections in their subjects/courses at a university and post 
+        “Advertisements” to create study groups/sessions or users post that they need help in a certain course 
+        or topic and other users can provide assistance
+
+.events.container-fluid
+  .row.top
+    %h1.eventsHeader Events
+  .row.top
+    %table.table
+      %thead
+        %tr
+          %th{:scope => "col"} Title
+          %th{:scope => "col"} Host
+          %th{:scope => "col"} Date
+          %th{:scope => "col"} Start time
+          %th{:scope => "col"} End time
+          %th{:scope => "col"} Location
+          %th{:scope => "col"} Description
+          %th{:colspan => "3"}
+      %tbody
+        - @events.each do |event|
+          %tr
+            %td= event.title
+            %td= event.host
+            %td= event.date
+            %td= event.start_time
+            %td= event.end_time
+            %td= event.location
+            %td= event.description
+            %td= link_to 'Show', event
+            %td= link_to 'Edit', edit_event_path(event)
+            %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+
+    // %table
+    //   %thead
+    //     %tr
+    //       %th Title
+    //       %th Host
+    //       %th Date
+    //       %th Start time
+    //       %th End time
+    //       %th Location
+    //       %th Description
+    //       %th{:colspan => "3"}
+    //   %tbody
+    //     - @events.each do |event|
+    //       %tr
+    //         %td= event.title
+    //         %td= event.host
+    //         %td= event.date
+    //         %td= event.start_time
+    //         %td= event.end_time
+    //         %td= event.location
+    //         %td= event.description
+    //         %td= link_to 'Show', event
+    //         %td= link_to 'Edit', edit_event_path(event)
+    //         %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+  .row.top
+    = link_to 'New Event', new_event_path
+    
+    
+%footer.footer
+  .container
+    %span.text-muted CollegeDaily is being developed by the Fall 2018 CS-345/545 batch of Binghamton University.
