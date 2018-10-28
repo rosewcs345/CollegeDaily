@@ -15,6 +15,8 @@
         
         ]
     
+    
+    
     events.each do |event|
         Event.create! event
     end
