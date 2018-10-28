@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :_controllers
   resources :events do 
     resources :roster
   end

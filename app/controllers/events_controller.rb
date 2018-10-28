@@ -34,6 +34,7 @@ class EventsController < ApplicationController
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
+      @event.roster = Roster.create
     end
   end
 

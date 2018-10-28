@@ -20,6 +20,9 @@
 %p
   %strong Description:
   = @event.description
+%p
+  %strong Roster
+  = link_to 'Roster', event_roster_path(:event_id =>@event.id)
 = link_to 'Edit', edit_event_path(@event)
 |
 = link_to 'Back', events_path
