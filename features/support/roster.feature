@@ -19,6 +19,6 @@ Scenario: view roster
   When I follow "Roster"
   Then I should see "Kristen Boscarino" in the name column of Roster
   And I should see "kboscar1@binghamton.edu" in the email column of Roster
-  And I should see "have car" in the info column
+  And I should see "have car" in the info column of Roster
 
 
