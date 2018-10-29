@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%h1 Listing Events
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Extra Information
+  %tbody
+    - @rosters.each do |roster|
+      %tr
+        %td= roster.name
+        %td= roster.email
+        %td= roster.info
+
+%br/
+
