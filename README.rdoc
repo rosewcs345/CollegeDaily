@@ -1,12 +1,16 @@
 == README MASTER!
 
 *** IMPORTANT ***
-- Do NOT directly push to master branch from team branches
-  - make pull requests (PR) https://help.github.com/articles/creating-a-pull-request/
-- Pull changes from master branch to your team branch time-to-time to get the latest changes
+  - Do NOT directly push to master branch from team branches
+    - make pull requests (PR) https://help.github.com/articles/creating-a-pull-request/
+    - Pull changes from master branch to your team branch time-to-time to get the latest changes
+*** LOOK HERE ***
+  - Check schema.rb in db/ has the latest changes. For some reason, git clone/pull is not retrieving this file
+    - simply copy the content from GitHub and paste to the schema.rb in your local branch
+    - then run $ rake db:migrate RAILS_ENV=development
+    - ensure the version number in schema.rb matchs to that of the last generated file in db/migration/
 
 
-This basically has nothing in it besides Ruby and Rails versions as well as the command used to turn on the server.
 
 To turn on the server:
   rails s -p $PORT -b $IP
