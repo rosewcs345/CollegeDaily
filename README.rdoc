@@ -16,8 +16,14 @@ With rerun:
 
 erb files to haml:
   rake haml:erb2haml
+  
+List of tracked(green)/untracked(red) remote branches:
+  git branch -a
+  
+To start tracking a specific remote branch:
+  git checkout --track origin/<branch name> (e.g., git checkout --track origin/team1)
 
-Useful Git Commands:
+More useful Git Commands:
   git checkout <branch name> (e.g., git checkout team1) -> switch to team1 branch
 
   git push origin <branch name> (e.g., git push origin team2) -> push changes to team2 branch
@@ -26,7 +32,7 @@ Useful Git Commands:
   git pull origin <branch name> (e.g, git pull origin team3) -> pull changes to team3 branch
 *** make sure you are in the correct working branch before pulling!!! ***
 
-change commit message
+change commit message:
   git commit --amend -am "new hello world"
 
 
