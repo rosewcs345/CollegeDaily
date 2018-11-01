@@ -3,7 +3,6 @@
 %table
   %thead
     %tr
-      %th Event Type
       %th Title
       %th Host
       %th Date
@@ -15,12 +14,11 @@
   %tbody
     - @events.each do |event|
       %tr
-        %td= event.event_type
         %td= event.title
         %td= event.host
         %td= event.date
-        %td= event.start_time.strftime "%I:%M %p"
-        %td= event.end_time.strftime "%I:%M %p"
+        %td= event.start_time_string
+        %td= event.end_time_string
         %td= event.location
         %td= event.description
         %td= link_to 'Show', event

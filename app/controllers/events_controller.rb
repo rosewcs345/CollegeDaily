@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    
   end
 
   # GET /events/new
@@ -24,8 +25,17 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+  
+    puts event_params[:title]
     @event = Event.new(event_params)
     
+    # get only hours and minutes
+    @event.start_time_string = @event.start_time.strftime("%I:%M %p")
+    @event.end_time_string = @event.end_time.strftime("%I:%M %p")
+    
+
+    #Event.format_time(@event.start_time)
+   
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -69,6 +79,8 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :host, :date, :start_time, :end_time, :location, :description, :roster, :event_type)
+      params.require(:event).permit(:title, :host, :date, :start_time, :end_time, 
+      :location, :description, :roster, :start_time_string, :end_time_string)
     end
+    
 end

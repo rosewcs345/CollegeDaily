@@ -1,30 +1,26 @@
-= render :partial => "nav"
-.event_container_centered
-  %p#notice= notice
-  %p
-    %strong Event Type:
-    = @event.event_type
-  %p
-    %strong Title:
-    = @event.title
-  %p
-    %strong Host:
-    = @event.host
-  %p
-    %strong Date:
-    = @event.date
-  %p
-    %strong Start time:
-    = @event.start_time.strftime "%I:%M %p"
-  %p
-    %strong End time:
-    = @event.end_time.strftime "%I:%M %p"
-  %p
-    %strong Location:
-    = @event.location
-  %p
-    %strong Description:
-    = @event.description
-  = link_to 'Edit', edit_event_path(@event), :class => "btn"
-  
-  = link_to 'Back', events_path, :class => "btn"
+%p#notice= notice
+%p
+  %strong Title:
+  = @event.title
+%p
+  %strong Host:
+  = @event.host
+%p
+  %strong Date:
+  = @event.date
+%p
+  %strong Start time:
+  = @event.start_time_string
+%p
+  %strong End time:
+  = @event.end_time_string
+%p
+  %strong Location:
+  = @event.location
+%p
+  %strong Description:
+  = @event.description
+= link_to 'Edit', edit_event_path(@event)
+|
+= link_to 'Back', events_path
+//strftime "%I:%M %p"
