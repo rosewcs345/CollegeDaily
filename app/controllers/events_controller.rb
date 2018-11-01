@@ -30,10 +30,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     
     # get only hours and minutes
-    @event.start_time_string = @event.start_time.strftime("%I:%M %p")
-    @event.end_time_string = @event.end_time.strftime("%I:%M %p")
+    @event.start_time_string = Event.format_time(@event.start_time);
+    @event.end_time_string = Event.format_time(@event.end_time);
     
-
     #Event.format_time(@event.start_time)
    
     respond_to do |format|
