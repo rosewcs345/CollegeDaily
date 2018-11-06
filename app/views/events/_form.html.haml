@@ -1,39 +1,48 @@
 = form_for(@event) do |f|
-  - if @event.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@event.errors.count, "error")
-        prohibited this event from being saved:
-      %ul
-        - @event.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :title
-    %br/
-    = f.text_field :title
-  .field
-    = f.label :host
-    %br/
-    = f.text_field :host
-  .field
-    = f.label :date
-    %br/
-    = f.date_select :date
-  .field
-    = f.label :start_time
-    %br/
-    = f.time_select :start_time
-  .field
-    = f.label :end_time
-    %br/
-    = f.time_select :end_time
-  .field
-    = f.label :location
-    %br/
-    = f.text_field :location
-  .field
-    = f.label :description
-    %br/
-    = f.text_area :description
-  .actions
-    = f.submit
+  .container-fluid.createEvent
+    - if @event.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@event.errors.count, "error")
+          prohibited this event from being saved:
+        %ul
+          - @event.errors.full_messages.each do |message|
+            %li= message
+    .row.field
+      .col.col-sm-6
+        = f.label :title
+      .col.col-sm-6
+        = f.text_field :title
+    .row.field
+      .col.col-sm-6
+        = f.label :host
+      .col.col-sm-6
+        = f.text_field :host
+    .row.field
+      .col.col-sm-6
+        = f.label :date
+      .col.col-sm-6
+        = f.date_select :date
+    .row.field
+      .col.col-sm-6
+        = f.label :start_time
+      .col.col-sm-6
+        = f.time_select :start_time
+    .row.field
+      .col.col-sm-6
+        = f.label :end_time
+      .col.col-sm-6
+        = f.time_select :end_time
+    .row.field
+      .col.col-sm-6
+        = f.label :location
+      .col.col-sm-6
+        = f.text_field :location
+    .row.field
+      .col.col-sm-6
+        = f.label :description
+      .col.col-sm-6
+        = f.text_area :description
+    .row.actions
+      .col.col-sm-12
+        = f.submit
