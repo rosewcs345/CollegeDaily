@@ -1,0 +1,47 @@
+
+
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Host:
+  = @event.host
+%p
+  %b Date:
+  = @event.date
+%p
+  %b Start time:
+  = @event.start_time
+%p
+  %b End time:
+  = @event.end_time
+%p
+  %b Location:
+  = @event.location
+%p
+  %b Description:
+  = @event.description
+%p
+  -# outdoor - study - club
+  -#= render (:partial => @event.category, :locals => {:event => @traits})
+  
+  %b Who's Going??
+%table#bookings
+  %thead
+    %tr
+      %th Name
+      %th email
+      %th
+  %tbody
+    - @bookings.each do |booking|
+      %tr
+        %td= booking.user.name 
+        %td= booking.user.email
+        %td= link_to 'Edit Sign Up Details', edit_event_booking_path(@event, booking)
+
+-# Don't confuse with login, this is for 'roster'
+= link_to 'Sign Up', new_event_booking_path(@event)
+= link_to 'Edit', edit_event_path(@event)
+|
+= link_to 'Back', events_path
+        
