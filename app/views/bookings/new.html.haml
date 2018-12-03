@@ -1,0 +1,16 @@
+     
+%h1 New booking
+= form_for [@event, @booking], {url: event_bookings_path, method: :post} do |f|
+  = f.hidden_field :event, { :value => @event.id }
+  = f.hidden_field :user, {:value => @user.id}
+  .field
+    = f.label :vehicle
+    = f.check_box :vehicle
+  .field
+    = f.label :usable_seats
+    = f.number_field :usable_seats
+  .actions
+    = f.submit 'Save'
+
+= link_to 'Back', event_path(@event)          
+        
