@@ -1,3 +1,21 @@
+== README TEAM 1
+
+This basically has nothing in it besides Ruby and Rails versions as well as the command used to turn on the server.
+
+To turn on the server:
+rails s -p $PORT -b $IP
+
+With rerun:
+bundle exec rerun -- rackup -p $PORT -o $IP
+
+erb files to haml:
+rake haml:erb2haml
+
+
+Things you may want to cover:
+
+* Ruby version = 2.4.0
+  Rails version = 4.2.10
 == README
 
 This README would normally document whatever steps are necessary to get the

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'welcome/login_page'
 
 
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   end
     
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
