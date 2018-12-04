@@ -31,6 +31,10 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    
+    # get only hours and minutes
+    @event.start_time_string = Event.format_time(@event.start_time);
+    @event.end_time_string = Event.format_time(@event.end_time);
 
     #You will have to edit this part as needed  
     respond_to do |format|
@@ -92,7 +96,8 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :category, :host, :location, :description, :date, :start_time, :end_time, :traits, :user_id)
+    params.require(:event).permit(:title, :category, :host, :location, :description, :date, 
+    :start_time, :end_time, :start_time_string, :end_time_string, :traits, :user_id)
   end
 end
       

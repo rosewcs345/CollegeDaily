@@ -22,8 +22,8 @@
         %td= event.location
         %td= event.description
         %td= event.date
-        %td= event.start_time
-        %td= event.end_time
+        %td= event.start_time_string
+        %td= event.end_time_string
         %td= link_to 'Details and Sign Up', event
         %td= link_to 'Edit', edit_event_path(event)
         %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
