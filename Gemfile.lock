@@ -451,11 +451,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   ZenTest (= 4.11.0)
-=======
   bootstrap-sass
->>>>>>> First iteration of Homepage UI
   byebug
   capybara (= 2.4.4)
   coffee-rails (~> 4.1.0)
