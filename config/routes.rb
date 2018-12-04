@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   #route for testing Oauth interface
   #get 'auth/developer', :as => 'login'
   #get 'auth/twitter', :as => 'login'
-  get 'auth/github', :as => 'login'  
-  match 'auth/:provider/callback' => 'sessions#create', :via => [:get, :post]
+  
+  
+  
+  #get 'auth/github', :as => 'login'  
+  #match 'auth/:provider/callback' => 'sessions#create', :via => [:get, :post]
+  get 'sessions/create', :as => 'login'  
 
   get 'sessions/destroy', :as => 'logout'
 
