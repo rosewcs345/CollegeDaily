@@ -29,15 +29,17 @@
 %table#bookings
   %thead
     %tr
-      %th Name
-      %th email
-      %th
+      %th Name  
+      %th 
+      %th Email
   %tbody
     - @bookings.each do |booking|
       %tr
-        %td= booking.user.name 
+        %td= booking.user.name
+        %td
         %td= booking.user.email
-        %td= link_to 'Edit Sign Up Details', edit_event_booking_path(@event, booking)
+        %td
+        %td= link_to 'Edit', edit_event_booking_path(@event, booking)
 
 -# Don't confuse with login, this is for 'roster'
 = link_to 'Sign Up', new_event_booking_path(@event)

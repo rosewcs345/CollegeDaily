@@ -17,10 +17,7 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy', :as => 'logout'
 
-
-
-
-
+  
 
 
 
