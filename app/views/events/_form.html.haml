@@ -22,7 +22,7 @@
       .col.col-sm-6
         = f.label :date
       .col.col-sm-6
-        = f.date_select :date
+        = f.date_select :date, max: Date.today
     .row.field
       .col.col-sm-6
         = f.label :start_time
