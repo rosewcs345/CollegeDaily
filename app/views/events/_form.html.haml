@@ -7,6 +7,9 @@
   .field
     = f.label :host
     = f.text_field :host
+    .field
+    = f.label :category
+    = f.select :category, [ 'Study Session','B-Line','Outdoor Adventures' ], :prompt => 'Select One'    
   .field
     = f.label :location
     = f.text_field :location
