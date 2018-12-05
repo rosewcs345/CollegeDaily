@@ -1,5 +1,13 @@
-%h1 New event
+= render 'header'
+
+.container-fluid.createEvent
+    .row
+        %h1 Create a new event
 
 = render 'form'
 
-= link_to 'Back', events_path
+.container-fluid.createEvent
+    .row
+        = link_to 'Back', events_path
+
+= render 'footer'
