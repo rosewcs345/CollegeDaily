@@ -119,5 +119,23 @@ html, body {
 		width: 160px;
 		margin-left: auto;
 		margin-right: auto;
+		#study_event_form {
+			display: block;
+			.hide {
+				display: hidden;
+			}
+		}
+		#club_event_form {
+			display: block;
+			.hide {
+				display: hidden;
+			}
+		}
+		#activity_event_form {
+			display: block;
+			.hide {
+				display: hidden;
+			}
+		}
 	}
 }
