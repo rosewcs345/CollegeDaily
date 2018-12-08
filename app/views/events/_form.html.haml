@@ -15,13 +15,12 @@
         = f.text_field :title
     .row.field
       .col.col-sm-6
-      
-        = f.select :event_type, [["Study Event", "Study Event"], ["Club Event", "Club Event"], ["Activity Event", "Activity Event"]]
+        = f.select :category, [["Study Event", "Study Event"], ["Club Event", "Club Event"], ["Activity Event", "Activity Event"]], {:onChange=>"showDiv(this);"}
     .row.field
       .col.col-sm-6
         = f.label :host
       .col.col-sm-6
-        = f.text_field :host
+        = f.text_field :host, value: @user.name
     .row.field
       .col.col-sm-6
         = f.label :date
@@ -31,12 +30,12 @@
       .col.col-sm-6
         = f.label :start_time
       .col.col-sm-6
-        = f.time_select :start_time
+        = f.time_select :start_time, {:ampm => true}
     .row.field
       .col.col-sm-6
         = f.label :end_time
       .col.col-sm-6
-        = f.time_select :end_time
+        = f.time_select :end_time, {:ampm => true}
     .row.field
       .col.col-sm-6
         = f.label :location
@@ -54,6 +53,10 @@
       #club_event_form.hide
         .col.col-sm-6
           %p <Add Event Event Fields Here>
+      .col.col-sm-6
+        = f.label :location
+      .col.col-sm-6
+        = f.text_field :location
       #activity_event_form.hide
         .col.col-sm-6
           %p <Add Activity Event Fields Here>

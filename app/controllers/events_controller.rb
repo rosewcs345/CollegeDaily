@@ -32,11 +32,12 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     
+    
     # get only hours and minutes
     @event.start_time_string = Event.format_time(@event.start_time);
     @event.end_time_string = Event.format_time(@event.end_time);
 
-    #You will have to edit this part as needed  
+    #You will have to edit this part as needed
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
