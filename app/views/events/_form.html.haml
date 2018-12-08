@@ -15,7 +15,8 @@
         = f.text_field :title
     .row.field
       .col.col-sm-6
-        = f.select "Select Event Type", [["Study Event", "Study Event"], ["Club Event", "Club Event"], ["Activity Event", "Activity Event"]]
+      
+        = f.select :event_type, [["Study Event", "Study Event"], ["Club Event", "Club Event"], ["Activity Event", "Activity Event"]]
     .row.field
       .col.col-sm-6
         = f.label :host
