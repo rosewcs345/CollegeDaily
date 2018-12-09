@@ -9,7 +9,16 @@ class Event < ActiveRecord::Base
     end
     
     def date_in_future
-      if self.date < Date.yesterday then
+      year = self.date.year
+      month = self.date.month
+      day = self.date.day
+     
+      hour = self.start_time.hour
+      min = self.start_time.min
+      sec = self.start_time.sec
+       
+       
+      if DateTime.new(year, month, day, hour, min, sec) < DateTime.now.in_time_zone("Eastern Time (US & Canada)") then
         errors.add(self.date.to_s, ": Incorrect Date value. Must be in Future.")
       end
     end
