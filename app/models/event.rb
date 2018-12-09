@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
     end
     
     def date_in_future
-      if self.date < Date.today then
+      if self.date < Date.yesterday then
         errors.add(self.date.to_s, ": Incorrect Date value. Must be in Future.")
       end
     end

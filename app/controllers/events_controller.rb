@@ -7,8 +7,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    # = User.all
-      
+   
+    
   end
 
   # GET /events/1
@@ -31,7 +31,8 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    
+
+    @event.user_id = @current_user.id
     
     # get only hours and minutes
     @event.start_time_string = Event.format_time(@event.start_time);
@@ -40,6 +41,7 @@ class EventsController < ApplicationController
     #You will have to edit this part as needed
     respond_to do |format|
       if @event.save
+        
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -47,12 +49,19 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+    
+    
+    #return redirect_to event_bookings_path
+    
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
     # Modify as needed
+    
+  
+    
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_path(@event), notice: 'Event was successfully updated.' }

@@ -26,7 +26,9 @@
             %td= event.location
             %td= event.description
             %td= link_to 'Show', event
-            %td= link_to 'Edit', edit_event_path(event)
-            %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+            - if @current_user.id == event.user_id 
+              %td= link_to 'Edit', edit_event_path(event) 
+            - if @current_user.id == event.user_id  
+              %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
   .row.top
     = link_to 'New Event', new_event_path
