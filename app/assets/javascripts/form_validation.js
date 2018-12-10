@@ -65,7 +65,7 @@ $(document).ready(function(){
 
     
     function isValidElem($elem){
-        if($elem.val()) return true;
+        if($.trim($elem.val())) return true;
         else return false;
     }        
     
