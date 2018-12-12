@@ -1,10 +1,36 @@
 -#%h1 Welcome#login_page
 -#%p Find me in app/views/welcome/login_page.html.haml
 
-%h1 College Daily
+%nav.navbar.navbar-default
+    .container-fluid
+        .navbar-header
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            %a.navbar-brand{:href => "./"} CollegeDaily
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.navbar-right
+                %li
+                    = link_to 'Sign In', login_path
 
--# ***************************************
--# Add explanatory and appealing text here!
--# Site should only be available to users who have signed in with valid suny binghamton id
-= link_to 'Sign In', login_path
+= render 'hero'
+
+// .container-fluid.login_page
+//     .row
+       
+//     -# ***************************************
+//     -# Add explanatory and appealing text here!
+//     -# Site should only be available to users who have signed in with valid suny binghamton id
+//     .row.form
+//         .row.button
+//             = link_to 'Sign In', login_path
+            
+// = render :partial => './events/footer'
+
+%footer.footer.welcomeFooter
+    .container
+        .col.col-sm-10
+            %p.text-muted CollegeDaily is being developed by the Fall 2018 CS-345/545 batch of Binghamton University.   
         
