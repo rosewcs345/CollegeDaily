@@ -42,8 +42,15 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         
-        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+        # change all refrences to "Activity Event" to "Outdoor Event"
+        if @event.category == "Activity Event"
+           format.html { redirect_to new_event_booking_path(@event), notice: 'Event was successfully created.' }
+        else
+          format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+        end
+        
         format.json { render :show, status: :created, location: @event }
+        
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
