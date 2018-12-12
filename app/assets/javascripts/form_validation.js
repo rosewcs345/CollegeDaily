@@ -8,11 +8,22 @@ $(document).ready(function(){
         }
     });
     
-    let [ isForm, isTitle, isHost, isLocation, isDesc, isDate, isTime ] = [ false, false, false, false, false, false, false ];
     const [title, host, loc, desc] = ["#event_title", "#event_host", "#event_location", "#event_description"];
+    let [ isForm, isTitle, isHost, isLocation, isDesc, isDate, isTime ] = [ false, false, false, false, false, false, false ];
     const [yy, mm, dd ] = ["#event_date_1i", "#event_date_2i", "#event_date_3i"];
     const [st_hr, st_mt, et_hr, et_mt] = ["#event_start_time_4i", "#event_start_time_5i", "#event_end_time_4i", "#event_end_time_5i"];
     
+    init();
+    
+    function init(){
+        isTitle = isValidElem($(title));
+        isHost = isValidElem($(host));
+        isLocation = isValidElem($(loc));
+        isDesc = isValidElem($(desc));
+        updateDate();
+        updateTime();
+        isForm = isFormValid();
+    }
     
     function updateDate(){
         const [ day, month, year ] = [$(dd), $(mm), $(yy)]; 
@@ -68,6 +79,7 @@ $(document).ready(function(){
     
     function isFormValid(){
         return isForm = isTitle & isHost & isLocation & isDesc & isDate & isTime;   
+               
     }        
     
     //event handlers
@@ -86,7 +98,7 @@ $(document).ready(function(){
     
     $(document).on('blur', host, function(e){
         isHost = isValidElem($(this));
-        isForm = isTitle & isHost & isLocation & isDesc & isDate & isTime;   
+        isForm = isFormValid();   
     });
     $(document).on('blur', loc, function(e){
         isLocation = isValidElem($(this));
@@ -94,7 +106,7 @@ $(document).ready(function(){
     });
     $(document).on('blur', desc, function(e){
         isDesc = isValidElem($(this));
-        isForm = isFormValid();;   
+        isForm = isFormValid();
     });
     
     $(document).on('blur', dd, function(e){

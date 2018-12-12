@@ -15,7 +15,6 @@ $(document).ready(() => {
     });
     
     function switchViews(showView, hideViews){
-        console.log("show ", showView);
         $(showView).addClass("show").removeClass("hide");
         hideViews.forEach( ( view ) => $(view).addClass("hide").removeClass("show"));
     }
