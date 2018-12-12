@@ -30,6 +30,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    p params
+    
+    
+    
     @event = Event.new(event_params)
 
     @event.user_id = @current_user.id
@@ -38,8 +42,13 @@ class EventsController < ApplicationController
     @event.start_time_string = Event.format_time(@event.start_time);
     @event.end_time_string = Event.format_time(@event.end_time);
 
-   
 
+   @booking = { :event_id => params["event_id"], :user_id => params["user_id"], :usable_seats => params["usable_seats"], :vehicle => params["vehicle"] }
+   p @event
+   
+  
+  @current_user.bookings << @event.bookings.build(@booking)
+    
     #You will have to edit this part as needed
     respond_to do |format|
       if @event.save
