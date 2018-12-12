@@ -38,12 +38,15 @@ class EventsController < ApplicationController
     @event.start_time_string = Event.format_time(@event.start_time);
     @event.end_time_string = Event.format_time(@event.end_time);
 
+   
+
     #You will have to edit this part as needed
     respond_to do |format|
       if @event.save
-        
+        #redirect_to new_event_booking_path @event.id
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
+        
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -51,7 +54,6 @@ class EventsController < ApplicationController
     end
     
     
-    #return redirect_to event_bookings_path
     
   end
 
