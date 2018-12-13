@@ -32,22 +32,18 @@ class EventsController < ApplicationController
   def create
     p params
     
-    
-    
     @event = Event.new(event_params)
-
     @event.user_id = @current_user.id
     
     # get only hours and minutes
     @event.start_time_string = Event.format_time(@event.start_time);
     @event.end_time_string = Event.format_time(@event.end_time);
 
-
-   @booking = { :event_id => params["event_id"], :user_id => params["user_id"], :usable_seats => params["usable_seats"], :vehicle => params["vehicle"] }
-   p @event
-   
-  
-  @current_user.bookings << @event.bookings.build(@booking)
+    p @event
+    
+    # @booking = { :event_id => params["event_id"], :user_id => params["user_id"], :usable_seats => 0, :vehicle => true }
+    customParam = { event_id: @event.id, user_id: @event.user_id, usable_seats: 0, vehicle: false }
+    @current_user.bookings << @event.bookings.build(customParam)
     
     #You will have to edit this part as needed
     respond_to do |format|
@@ -127,5 +123,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :category, :host, :location, :description, :date, 
     :start_time, :end_time, :start_time_string, :end_time_string, :traits, :user_id)
   end
+  
+  
 end
       
