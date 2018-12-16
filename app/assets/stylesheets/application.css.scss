@@ -251,3 +251,22 @@ a:visited {
 		}
 	}
 }
+
+.greeting {
+	// width: 100%;
+	// max-width: 1366px;
+	// min-width: 800px;
+	// margin-left: auto;
+	// margin-right: auto;
+	margin-top: 6px;
+	margin-right: 20px;
+	span {
+		display: block;
+		background-color: #005A43;
+		padding: 10px 20px;
+		box-shadow: 1px 4px 4px #ccc;
+		float: right;
+		color: #fff;
+		border-radius: 40px;
+	}
+}
