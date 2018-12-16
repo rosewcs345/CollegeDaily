@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   #delete sessions folder in view  
   def create
     
-    auth_hash = { "provider" => "Bing", "uid" => "1", "info" => {"email" => "myemail@yolo.com", "name" => "roy"}, 
+    auth_hash = { "provider" => "Bing", "uid" => "2", "info" => {"email" => "myemail@yolo.com", "name" => "Rudolph 2"}, 
       "extra" => {"raw_info" => {"location" => "New York"}} }
     @user = User.where(:provider => auth_hash["provider"], :uid => auth_hash["uid"]).first || User.create_with_omniauth(auth_hash)
     session[:user_id] = @user.id

@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
+    
     @current_user.bookings << @event.bookings.build(booking_params)
     # Add logic for what to do if unsuccessful, go back to form
     flash[:notice] = 'Booking was successfully created.'    

@@ -231,13 +231,23 @@ a:visited {
 		width: 160px;
 		margin-left: auto;
 		margin-right: auto;
-	}
-}
-
-.login_page {
-	height: 100%;
-	background-color: #005A43;
-	img {
-		width: 300px;
+		#study_event_form {
+			display: block;
+			.hide {
+				display: hidden;
+			}
+		}
+		#club_event_form {
+			display: block;
+			.hide {
+				display: hidden;
+			}
+		}
+		#activity_event_form {
+			display: block;
+			.hide {
+				display: hidden;
+			}
+		}
 	}
 }

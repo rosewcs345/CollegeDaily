@@ -7,8 +7,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    # = User.all
-      
+   
+    
   end
 
   # GET /events/1
@@ -30,28 +30,52 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    p params
+    
     @event = Event.new(event_params)
+    @event.user_id = @current_user.id
     
     # get only hours and minutes
     @event.start_time_string = Event.format_time(@event.start_time);
     @event.end_time_string = Event.format_time(@event.end_time);
 
-    #You will have to edit this part as needed  
+    p @event
+    
+    # @booking = { :event_id => params["event_id"], :user_id => params["user_id"], :usable_seats => 0, :vehicle => true }
+    customParam = { event_id: @event.id, user_id: @event.user_id, usable_seats: 0, vehicle: false }
+    @current_user.bookings << @event.bookings.build(customParam)
+    
+    #You will have to edit this part as needed
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+
+        # change all refrences to "Activity Event" to "Outdoor Event"
+        if @event.category == "Activity Event"
+           format.html { redirect_to new_event_booking_path(@event), notice: 'Event was successfully created.' }
+        else
+          format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+        end
+        
+
         format.json { render :show, status: :created, location: @event }
+        
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+    
+    
+    
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
     # Modify as needed
+    
+  
+    
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_path(@event), notice: 'Event was successfully updated.' }
@@ -99,5 +123,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :category, :host, :location, :description, :date, 
     :start_time, :end_time, :start_time_string, :end_time_string, :traits, :user_id)
   end
+  
+  
 end
       
