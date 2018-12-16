@@ -23,6 +23,9 @@
         %li
           %a{:href => "#"} Contact
       %ul.nav.navbar-nav.navbar-right
+        %li.greeting
+          %span
+            Hi, #{@user.name.camelcase(:upper)}
         %li
           = link_to 'Log Out', logout_path
     / /.navbar-collapse
