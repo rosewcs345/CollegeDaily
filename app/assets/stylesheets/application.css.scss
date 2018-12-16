@@ -78,30 +78,96 @@ a:visited {
 .hero {
 	width: 100%;
 	min-width: 800px;
+	padding: 0px 0 50px 0;
 	box-shadow: inset 1px 2px 10px #aaa;
-	.row {
+	.imageRow {
+		// background-image: linear-gradient( rgba(0,67,51,.2), rgba(0,67,51,.2) ), url('https://oneclassblog.com/wp-content/uploads/2017/09/binghamton-2.jpg');
+		// background-size: cover;
+		width: 800px;
+		padding: 60px 0;
+		margin-left: auto;
+		margin-right: auto;
+		img {
+			width: 400px;
+			margin-left: 200px;
+		}
+	}
+	.cardsRow {
 		width: 100%;
-		max-width: 1600px;
+		max-width: 1000px;
 		min-width: 800px;
-  		padding: 10px 40px;
-  		margin-left: auto;
-  		margin-right: auto;
-  		.col-sm-6 {
-  			padding: 10px 20px;
-   			img {
-				width: 100%;
-   			}
-   			p {
-   				font-family: 'Roboto', sans-serif;
-   				font-weight: 300;
-   				font-size: 18px;
-   				margin-top: 10px;
-   				span {
-   					font-weight: 500;
-   				}
-   			}
-  		}
- 	}
+		padding: 0 0 20px 0;
+		margin-left: auto;
+		margin-right: auto;
+		.cardsDesc {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			font-family: 'Roboto', sans-serif;
+			font-size: 20px;
+			font-weight: 400;
+			span {
+				display: block;
+				padding-top: 25px;
+				border-top: 1px dashed #888;
+				font-size: 20px;
+				font-weight: 400;
+			}
+		}
+		.col-sm-4 {
+			width: 30%;
+			min-width: 240px;
+			margin-top: 35px;
+			margin-left: 1.66%;
+			margin-right: 1.66%;
+			background: #f2f2f0;
+			box-shadow: 1px 10px 10px #ddd;
+			.number {
+				margin-bottom: 20px;
+				margin-top: 20px;
+				p {
+					font-family: 'Roboto', sans-serif;
+					padding: 15px 16px;
+					border-radius: 100px;
+					background: #f9f9f9;
+					color: #004333;
+					font-size: 30px;
+					text-align: center;
+					margin-left: auto;
+					margin-right: auto;
+					width: fit-content;
+				}
+			}
+			.text {
+				height: 250px;
+				// background: url(https://stadiumjourney.com/wp-content/uploads/2018/02/Binghamton-University-Events-Center-Interior.jpg);
+				p {
+					margin-top: 98px;
+					margin-left: auto;
+					margin-right: auto;
+					text-align: center;
+					width: 90%;
+					padding: 16px 2px;
+					font-size: 18px;
+					color: #eee;
+					background: rgba(0,38,28,.6);
+					box-shadow: 0px 4px 4px rgba(0,38,28,.7);
+				}
+			}
+			.one {
+				background-image: linear-gradient( rgba(0,67,51,.2), rgba(0,67,51,.2) ), url('https://stadiumjourney.com/wp-content/uploads/2018/02/Binghamton-University-Events-Center-Interior.jpg');
+				background-size: cover;
+			}
+			.two {
+				background-image: linear-gradient( rgba(0,67,51,.2), rgba(0,67,51,.2) ), url('https://www.telegraph.co.uk/content/dam/Travel/ski/skier-big-mountain.jpg');
+				background-size: cover;
+			}
+			.three {
+				background-image: linear-gradient( rgba(0,67,51,.2), rgba(0,67,51,.2) ), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41HeJ0qa3XdY4SGotkbSPLBSY8QIBUuBZ6WSlsPR8jl3fe1PO');
+				background-size: cover;	
+			}
+		}
+	}
 }
 
 .events {
@@ -137,9 +203,8 @@ a:visited {
 }
 
 .welcomeFooter {
-	position: absolute;
-	bottom: 0;
-	margin-top: 0;
+	position: relative;
+	margin-top: 0px;
 }
 
 .createEvent {
