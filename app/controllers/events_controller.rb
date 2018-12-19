@@ -42,6 +42,7 @@ class EventsController < ApplicationController
     p @event
     
     # @booking = { :event_id => params["event_id"], :user_id => params["user_id"], :usable_seats => 0, :vehicle => true }
+    
     customParam = { event_id: @event.id, user_id: @event.user_id, usable_seats: 0, vehicle: false }
     @current_user.bookings << @event.bookings.build(customParam)
     
@@ -49,9 +50,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
 
-        # change all refrences to "Activity Event" to "Outdoor Event"
-        if @event.category == "Activity Event"
-           format.html { redirect_to new_event_booking_path(@event), notice: 'Event was successfully created.' }
+       
+        if @event.category == "Outdoor Event"
+          format.html { redirect_to new_event_booking_path(@event), notice: 'Event was successfully created.' }
         else
           format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         end

@@ -9,10 +9,29 @@ class Booking < ActiveRecord::Base
   validate :positive_bookings
   
   def positive_bookings
-    
     if self.usable_seats < 0 then
         errors[:event] << "Must have 0 or more seats."
     end
   end
+  
+  # check if user is already registered to the same event
+  def eventExists bookings, event_id
+    
+    bookings.each do |item|
+      if item.event_id.to_s == event_id.to_s
+        return true
+      end
+    end
+    
+    return false
+  end
+  
+  def getMatchedBooking bookings, event_id
+    bookings.each do |item|
+      if item.event_id.to_s == event_id.to_s
+        return item
+      end
+    end
+  end  
       
 end

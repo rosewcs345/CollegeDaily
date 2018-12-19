@@ -1,16 +1,16 @@
 $(document).ready(() => {
-    const [ STD, CLB, ACT ] = ["Study Event", "Club Event", "Activity Event"];
-    const [ study, club, activity ] = [ "#study_event_form",  "#club_event_form", "#activity_event_form" ];
+    const [ STD, CLB, OUT ] = ["Study Event", "Club Event", "Outdoor Event"];
+    const [ study, club, outdoor ] = [ "#study_event_form",  "#club_event_form", "#outdoor_event_form" ];
     
     $(document).on("change", "#event_category", () => {
         const eventType = $("#event_category").val();
         
         if(eventType === STD){
-            switchViews(study, [club, activity]);
+            switchViews(study, [club, outdoor]);
         }else if(eventType === CLB) {
-            switchViews(club, [study, activity]);
-        }else if(eventType === ACT) {
-            switchViews(activity, [study, club]);
+            switchViews(club, [study, outdoor]);
+        }else if(eventType === OUT) {
+            switchViews(outdoor, [study, club]);
         }
     });
     

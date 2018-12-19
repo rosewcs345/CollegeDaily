@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = @event.bookings.build
+    @bookingModel = Booking.new
   end
 
   # GET /bookings/1/edit
@@ -14,21 +15,35 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    
-    @current_user.bookings << @event.bookings.build(booking_params)
-    # Add logic for what to do if unsuccessful, go back to form
-    flash[:notice] = 'Booking was successfully created.'    
-    redirect_to event_path(@event)
-
-    #respond_to do |format|
-    #  if @booking.save
-    #    format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-    #    format.json { render :show, status: :created, location: @booking }
-    #  else
-    #    format.html { render :new }
-    #    format.json { render json: @booking.errors, status: :unprocessable_entity }
-    #  end
-    #end
+   @bookingModel = Booking.new
+   
+   eventExists = @bookingModel.eventExists(@current_user.bookings, params[:event_id])
+   @booking = @bookingModel.getMatchedBooking(@current_user.bookings, params[:event_id])
+   
+    if eventExists
+      # update the matched booking object with the new data
+      @booking.update(booking_params)
+      redirect_to event_path(@event)
+    else 
+      createBbooking = @event.bookings.build(booking_params)
+      
+      @current_user.bookings << createBbooking
+      puts "------" + @current_user.bookings.length.to_s + "--------"
+      
+      # Add logic for what to do if unsuccessful, go back to form
+      flash[:notice] = 'Booking was successfully created.'    
+      redirect_to event_path(@event)
+  
+      #respond_to do |format|
+      #  if @booking.save
+      #    format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+      #    format.json { render :show, status: :created, location: @booking }
+      #  else
+      #    format.html { render :new }
+      #    format.json { render json: @booking.errors, status: :unprocessable_entity }
+      #  end
+      #end
+    end
   end
 
   # PATCH/PUT /bookings/1
