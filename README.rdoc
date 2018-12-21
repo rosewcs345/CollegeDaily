@@ -10,7 +10,10 @@
     - then run $ rake db:migrate RAILS_ENV=development
     - ensure the version number in schema.rb matchs to that of the last generated file in db/migration/
 
-
+Migrations pending on first clone - do the following
+  rake db:drop
+  rake db:schema:load
+  bin/rake db:migrate RAILS_ENV=development
 
 To turn on the server:
   rails s -p $PORT -b $IP
