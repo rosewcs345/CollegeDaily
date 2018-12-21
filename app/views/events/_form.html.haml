@@ -1,0 +1,76 @@
+= form_for(@event) do |f|
+  .container-fluid.createEvent
+    - if @event.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@event.errors.count, "error")
+          prohibited this event from being saved:
+        %ul
+          - @event.errors.full_messages.each do |message|
+            %li= message
+    .row.field
+      .col.col-sm-6
+        = f.label :title
+      .col.col-sm-6
+        = f.text_field :title
+    .row.field
+      .col.col-sm-6
+        = f.select :category, [["Study Event", "Study Event"], ["Club Event", "Club Event"], ["Outdoor Event", "Outdoor Event"]]
+    .row.field
+      .col.col-sm-6
+        = f.label :host
+      .col.col-sm-6
+        = f.text_field :host, value: @user.name
+    .row.field
+      .col.col-sm-6
+        = f.label :date
+      .col.col-sm-6
+        = f.date_select :date, max: Date.today
+    .row.field
+      .col.col-sm-6
+        = f.label :start_time
+      .col.col-sm-6
+        = f.time_select :start_time, {:ampm => true}
+    .row.field
+      .col.col-sm-6
+        = f.label :end_time
+      .col.col-sm-6
+        = f.time_select :end_time, {:ampm => true}
+    .row.field
+      .col.col-sm-6
+        = f.label :location
+      .col.col-sm-6
+        = f.text_field :location
+    .row.field
+      .col.col-sm-6
+        = f.label :description
+      .col.col-sm-6
+        = f.text_area :description
+    .row.field
+      #study_event_form.show
+        .col.col-sm-6
+          %label{:name => "major"} Major
+        .col.col-sm-6
+          %input{:type => "text", :name => "major", :id => "major", :value => "CS"}
+        .col.col-sm-6
+          %label{:name => "subject"} Subject
+        .col.col-sm-6
+          %input{:type => "text", :name => "subject", :id => "subject", :value => "cs580w"}
+          
+      #club_event_form.hide
+        .col.col-sm-6
+          %label{:name => "club_name"} Club name
+        .col.col-sm-6
+          %input{:type => "text", :name => "club_name", :id => "club_name", :value => "dummy club event"}
+        .col.col-sm-6
+          %input{:type => "text", :name => "usable_seats", :id => "usable_seats", :value => "dummy club event"}
+        .col.col-sm-6
+          %input{:type => "text", :name => "vehicle", :id => "vehicle", :value => "dummy club event"}
+      #outdoor_event_form.hide
+        .col.col-sm-6
+          %label{:name => "subject"} Activity
+        .col.col-sm-6
+          %input{:type => "text", :name => "seats", :id => "seats", :value => "4"}
+    .row.actions
+      .col.col-sm-12
+        = f.submit

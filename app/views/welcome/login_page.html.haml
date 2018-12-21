@@ -1,0 +1,21 @@
+%nav.navbar.navbar-default
+    .container-fluid
+        .navbar-header
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            %a.navbar-brand{:href => "./"} CollegeDaily
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.navbar-right
+                %li
+                    = link_to 'Sign In', login_path
+
+= render 'hero'
+
+%footer.footer.welcomeFooter
+    .container
+        .col.col-sm-10
+            %p.text-muted CollegeDaily is being developed by the Fall 2018 CS-445/545 batch of Binghamton University.   
+        
