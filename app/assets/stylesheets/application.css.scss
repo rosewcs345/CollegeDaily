@@ -344,3 +344,12 @@ a:visited {
 		color: #fff;
 	}
 }
+
+.footer .col-sm-2 a {
+    color: #444;
+	&:hover {
+		text-decoration: none;
+		background: transparent;
+		color: #111;
+	}
+}
